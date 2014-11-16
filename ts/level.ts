@@ -2,10 +2,8 @@
 
 class Level {
     private map: TileType[][];
-    private tiles: Tiles;
 
-    constructor(tiles: Tiles, tileString: string) {
-        this.tiles = tiles;
+    constructor(tileString: string) {
         this.parseTileString(tileString);
     }
 
@@ -33,7 +31,7 @@ class Level {
                         break;
 
                     case '$':
-                        this.goldList.push(new Gold(this.tiles, x, y));
+                        this.goldList.push(new Gold(x, y));
                         this.map[x][y] = TileType.Empty;
                         break;
 
@@ -72,12 +70,11 @@ class Level {
                 if (tileType == TileType.Empty)
                     continue;
 
-                var bitmap = this.tiles.createTileBitmap(this.map[x][y], x, y);
+                var bitmap = Globals.createTileBitmap(this.map[x][y], x, y);
                 stage.addChild(bitmap);
             }
         }
     }
-
 
 
 }

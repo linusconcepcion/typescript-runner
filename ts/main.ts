@@ -6,12 +6,11 @@
 class Main {
     private canvas: HTMLCanvasElement;
     private stage: createjs.Stage;
-    private assets: createjs.LoadQueue;
+    
 
     private message: createjs.Text;
 
     private level: Level;
-    private tiles: Tiles;
 
     private goldList: Gold[];
     private goldCount: number;
@@ -28,9 +27,9 @@ class Main {
         this.stage.addChild(this.message);
         this.stage.update();
 
-        this.assets = new createjs.LoadQueue();
-        this.assets.installPlugin(createjs.Sound);
-        this.assets.on("complete", (e: createjs.Event) => { this.onAssetsLoaded(e) });
+        Globals.assets = new createjs.LoadQueue();
+        Globals.assets.installPlugin(createjs.Sound);
+        Globals.assets.on("complete", (e: createjs.Event) => { this.onAssetsLoaded(e) });
 
         var manifest =
             [
@@ -39,13 +38,11 @@ class Main {
                 { src: "assets/images/monks.png", id: "monk" }
             ];
 
-        this.assets.loadManifest(manifest);
+        Globals.assets.loadManifest(manifest);
     }
 
     private onAssetsLoaded(e: createjs.Event) {
         this.stage.removeChild(this.message);
-
-        this.tiles = new Tiles(<HTMLImageElement>this.assets.getResult("tiles"));
 
         // start at level 1 please
         this.gotoLevel(1);
@@ -55,7 +52,7 @@ class Main {
         var levels: string[] = originalLevels;
         var levelString = levels[levelnumber - 1];
 
-        this.level = new Level(this.tiles, levelString);
+        this.level = new Level(levelString);
         this.level.initializeStage(this.stage);
 
         this.goldList = this.level.goldList;

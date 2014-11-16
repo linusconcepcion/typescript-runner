@@ -42,7 +42,6 @@
     <TypeScriptCompile Include="ts\scripts\typings\preloadjs.d.ts" />
     <TypeScriptCompile Include="ts\scripts\typings\soundjs.d.ts" />
     <TypeScriptCompile Include="ts\scripts\typings\tweenjs.d.ts" />
-    <TypeScriptCompile Include="ts\tiles.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
