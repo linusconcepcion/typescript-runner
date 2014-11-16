@@ -34,6 +34,8 @@
     <TypeScriptCompile Include="ts\gold.ts" />
     <TypeScriptCompile Include="ts\level.ts" />
     <TypeScriptCompile Include="ts\main.ts" />
+    <TypeScriptCompile Include="ts\monk.ts" />
+    <TypeScriptCompile Include="ts\runnerbase.ts" />
     <TypeScriptCompile Include="ts\scripts\typings\createjs.d.ts" />
     <TypeScriptCompile Include="ts\scripts\typings\easeljs.d.ts" />
     <TypeScriptCompile Include="ts\scripts\typings\ndgmr.Collision.d.ts" />

@@ -13,16 +13,16 @@ class Level {
 
     private parseTileString(tileString: string) {
         this.map = [];
-        for (var x = 0; x < Globals.NumberOfTilesX; x++) {
+        for (var x = 0; x < Globals.LEVELSIZE_X; x++) {
             this.map[x] = [];
-            for (var y = 0; y < Globals.NumberOfTilesY; y++) {
+            for (var y = 0; y < Globals.LEVELSIZE_Y; y++) {
                 this.map[x][y] = TileType.Empty;
             }
         }
 
         var index = 0;
-        for (var y = 0; y < Globals.NumberOfTilesY; y++) {
-            for (var x = 0; x < Globals.NumberOfTilesX; x++) {
+        for (var y = 0; y < Globals.LEVELSIZE_Y; y++) {
+            for (var x = 0; x < Globals.LEVELSIZE_X; x++) {
                 var id = tileString.charAt(index++);
 
                 switch (id) {
@@ -65,8 +65,8 @@ class Level {
     public initializeStage(stage: createjs.Stage) {
         stage.clear();
 
-        for (var y = 0; y < Globals.NumberOfTilesY; y++) {
-            for (var x = 0; x < Globals.NumberOfTilesX; x++) {
+        for (var y = 0; y < Globals.LEVELSIZE_Y; y++) {
+            for (var x = 0; x < Globals.LEVELSIZE_X; x++) {
 
                 var tileType: TileType = this.map[x][y];
                 if (tileType == TileType.Empty)
