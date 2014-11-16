@@ -46,11 +46,11 @@ var Tiles = (function () {
     };
 
     Tiles.prototype.createTileBitmapFromGrid = function (xtile, ytile, x, y) {
-        var rectangle = new createjs.Rectangle((xtile - 1) * Globals.TileWidth, (ytile - 1) * Globals.TileHeight, Globals.TileWidth, Globals.TileHeight);
+        var rectangle = new createjs.Rectangle((xtile - 1) * Globals.TILE_WIDTH, (ytile - 1) * Globals.TILE_HEIGHT, Globals.TILE_WIDTH, Globals.TILE_HEIGHT);
 
         var bitmap = new createjs.Bitmap(this.tilesImage);
         bitmap.sourceRect = rectangle;
-        bitmap.setTransform(Globals.XOffset + (x * Globals.TileWidth), Globals.YOffset + (y * Globals.TileHeight));
+        bitmap.setTransform(Globals.UI_MARGIN_LEFT + (x * Globals.TILE_WIDTH), Globals.UI_MARGIN_TOP + (y * Globals.TILE_HEIGHT));
 
         return bitmap;
     };

@@ -7,16 +7,16 @@ var Level = (function () {
     }
     Level.prototype.parseTileString = function (tileString) {
         this.map = [];
-        for (var x = 0; x < Globals.NumberOfTilesX; x++) {
+        for (var x = 0; x < Globals.LEVELSIZE_X; x++) {
             this.map[x] = [];
-            for (var y = 0; y < Globals.NumberOfTilesY; y++) {
+            for (var y = 0; y < Globals.LEVELSIZE_Y; y++) {
                 this.map[x][y] = 0 /* Empty */;
             }
         }
 
         var index = 0;
-        for (var y = 0; y < Globals.NumberOfTilesY; y++) {
-            for (var x = 0; x < Globals.NumberOfTilesX; x++) {
+        for (var y = 0; y < Globals.LEVELSIZE_Y; y++) {
+            for (var x = 0; x < Globals.LEVELSIZE_X; x++) {
                 var id = tileString.charAt(index++);
 
                 switch (id) {
@@ -59,8 +59,8 @@ var Level = (function () {
     Level.prototype.initializeStage = function (stage) {
         stage.clear();
 
-        for (var y = 0; y < Globals.NumberOfTilesY; y++) {
-            for (var x = 0; x < Globals.NumberOfTilesX; x++) {
+        for (var y = 0; y < Globals.LEVELSIZE_Y; y++) {
+            for (var x = 0; x < Globals.LEVELSIZE_X; x++) {
                 var tileType = this.map[x][y];
                 if (tileType == 0 /* Empty */)
                     continue;
